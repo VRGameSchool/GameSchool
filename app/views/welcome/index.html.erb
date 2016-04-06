@@ -1,0 +1,162 @@
+<!-- ROBOT NAV BAR R-SCREEN -->
+<side-nav>
+  <div class="logo">
+    <div class="dot" id="dot0"></div>
+    <div class="dot" id="dot1"></div>
+    <div class="dot" id="dot2"></div>
+    <div class="dot" id="dot3"></div>
+    <div class="dot" id="dot4"></div>
+  </div>
+</side-nav>
+
+<!-- (1) Home Section Parallax -->
+<section id="img-parallax-1" data-type="background" data-speed="10">
+  <div id="hero-text">
+    <div class="section">
+      <img src="assets/images/logo2.png" height="125px">
+      <h1>
+        <p>Bring Your own VR Exprience to Life</p>
+      </h1>
+      <input type="submit" value="Join our next Class" class="btn" id="join-btn">
+      <input type="submit" value="Stay up to Date" class="btn" id="signup-btn">
+    </div>
+  </div>
+</section>
+
+<!-- (2) SLIDE 1 -->
+  <div id="slide-1" class="slide">
+    <div class="container">
+      <h1>Start Learning Now!</h1>
+      <h3 id="selection">Join our upcoming classes:</h3>
+      <br />
+      <div class="section interest" data-package="daily">
+        <h2>Intro to Unity</h2>
+        <p>$150</p>
+        <p>Two night course for beginners</p>
+      </div>
+      <div class="section interest" data-package="part-time">
+        <h2>VR User Interface</h2>
+        <p>$150</p>
+        <p>Two night course for beginners</p>
+      </div>
+      <div class="section interest" data-package="member">
+        <h2>Intro to Code</h2>
+        <p>$350</p>
+        <p>1 week evening course</p>
+      </div>
+      <div class="section interest" data-package="dedicated">
+        <h2>360 Video</h2>
+        <p>$600</p>
+        <p>One day class and take home your own 360 camera!</p>
+      </div>
+      <div class="container">
+        <a href="/classes.html"><button class="btn" id="next">More Classes</button></a>
+      </div>
+    </div>
+  <!-- Close About Slide -->
+  </div>
+
+<!-- (3) Section Parallax -->
+<section id="img-parallax-2" data-type="background" data-speed="11">
+  <div class="section">
+    <h1>
+      <p>We believe that people should build the experiences they imagine.</p>
+    </h1>
+  </div>
+</section>
+
+<!-- (4) SLIDE 2 -->
+  <div id="slide-2">
+    <div class="container">
+      <h1>Our Partners</h1>
+    </div>
+<!-- SECTION ONE -->
+    <div class="container">
+      <div class="section">
+        <div class="img-container">
+          <img src="assets/icons/partner1.png">
+        </div>
+      </div>
+<!-- SECTION TWO -->
+      <div class="section">
+        <div class="img-container">
+          <img src="assets/icons/partner2.png">
+        </div>
+      </div>
+    </div>
+<!-- CLOSE HOME SLIDE -->
+    </div>
+  </div>
+
+<!-- (5) Section Parallax -->
+<section id="img-parallax-3" data-type="background" data-speed="13">
+  <div class="section">
+    <h1>
+      <p>We let creativity flourish, and innovation thrive.</p>
+    </h1>
+  </div>
+</section>
+
+<!-- (6) CONTACT SLIDE -->
+<div id="contactme" class="slide">
+  <div class="container">
+    <h1><strong>Get in Touch</strong></h1>
+
+    <div class="section" id="contact-details">
+      <p><img src="assets/images/mobile.png"> 951-533-0506</p>
+      <p><img src="assets/images/mail.png"> hello@gameschool.io</p>
+      <p><img src="assets/images/location.png"> 250 E Olive Ave #202, Burbank, CA 91502</p>
+    </div>
+
+    <div class="section">
+    <p>Don't fall behind! Access our Newsletter:</p>
+      <form>
+        <input type="text" class="text-box" placeholder="your email">
+        <input type="submit" value="SignUp" class="btn">
+      </form>
+    </div>
+  </div>
+
+  <!-- Social Media Links -->
+  <div class="socmed">
+    <a href="http://twitter.com/" id="twitter"><img src="assets/images/twitter.png"></a>
+    <a href="http://facebook.com/" id="facebook"><img src="assets/images/facebook.png"></a>
+  </div>
+  <div class="legal">COPYRIGHT © 2016 GAMESCHOOL. ALL RIGHTS RESERVED.</div>
+</div>
+
+<!-- (7) GOOGLE MAPS SECTION -->
+<div id="map-canvas"></div>
+<script>
+  // Google Maps
+  var map;
+  function initMap() {
+    var mapOptions = {
+      center: {lat: 34.180, lng: -118.3076012},
+      zoom: 17,
+      disableDefaultUI: true,
+      scroll:{x:$(window).scrollLeft(),y:$(window).scrollTop()}
+    };
+    map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    var marker = new google.maps.Marker({
+      position: {lat: 34.1812979, lng: -118.3076012},
+      map: map,
+      title: 'HanHai Studio'
+    });
+
+  // Paralax Google Map
+    var offset=$(map.getDiv()).offset();
+    map.panBy(((mapOptions.scroll.x-offset.left)/3),((mapOptions.scroll.y-offset.top)/3));
+
+    google.maps.event.addDomListener(window, 'scroll', function(){
+      var scrollY=$(window).scrollTop(),
+      scrollX=$(window).scrollLeft(),
+      scroll=map.get('scroll');
+      if(scroll){
+        map.panBy(-((scroll.x-scrollX)/3),-((scroll.y-scrollY)/3));
+      }
+      map.set('scroll',{x:scrollX,y:scrollY})
+    });
+  }
+  initMap();
+</script>
