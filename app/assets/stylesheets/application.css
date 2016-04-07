@@ -203,6 +203,10 @@
  .btn:active {
    background-color: #7C519C;
  }
+ /* For rails links that are button styled */
+a.btn {
+  color: white;
+}
 
  /* Next Button */
  #next a {
