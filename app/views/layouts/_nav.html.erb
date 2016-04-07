@@ -3,15 +3,15 @@
   <div class="nav-container">
     <div class="logo-container">
       <div id="logo">
-        <a href="/"><img src="/assets/icons/logo-sm.png">GameSchool</a>
+        <a href="/"><%= image_tag("logo-sm.png") %>GameSchool</a>
       </div>
     </div>
     <!-- Navigation Links -->
     <div class="links-container">
-      <div class="nav-link"><a href="/">home</a></div>
-      <div class="nav-link"><a href="/about.html">about</a></div>
-      <div class="nav-link"><a href="/who-we-are.html">who we are</a></div>
-      <div class="nav-link"><a href="/classes.html">classes</a></div>
+      <div class="nav-link"><%= link_to 'home', root_path %></div>
+      <div class="nav-link"><%= link_to 'about', about_path %></div>
+      <div class="nav-link"><%= link_to 'who we are', root_path %></div>
+      <div class="nav-link"><%= link_to 'classes', root_path %></div>
       <div class="nav-link btn exo sm" id="nav-signup">signup</div>
     </div>
     <!-- Menu -->
