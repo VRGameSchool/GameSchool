@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'welcome#index'
-  get '/welcome/about',      to: 'welcome#about',      as: 'about'
-  get '/welcome/who_we_are', to: 'welcome#who_we_are', as: 'who-we-are'
-  get '/welcome/classes',    to: 'welcome#classes',    as: 'classes'
+  get '/about',      to: 'welcome#about',      as: 'about'
+  get '/who_we_are', to: 'welcome#who_we_are', as: 'who-we-are'
+  get '/classes',    to: 'welcome#classes',    as: 'classes'
   resources :courses
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
