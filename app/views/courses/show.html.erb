@@ -1,19 +1,43 @@
+<style>
+  .section {
+    min-width: 300px;
+    width: 50%;
+    text-align: justify;
+  }
+</style>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @course.name %>
-</p>
+<%= link_to 'Edit', edit_course_path(@course) %> | <%= link_to 'Back', courses_path %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @course.description %>
-</p>
+<div class="slide">
+  <div class="container">
+    <h1><%= @course.name %></h1>
+  </div>
+  <div class="container">
+    <div class="section">
+      <div class="content">
+        <p>
+          <%= @course.course_summary %>
+        </p>
+        <p>
+          <%= @course.description %>
+        </p>
+        <p>
+          <%= @course.course_length %>
+        </p>
+      </div>
+    </div>
+    <p>
+      <%= @course.price %>
+      <strong>Description:</strong>
+    </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @course.date %>
-</p>
+    <p>
+      <strong>Date:</strong>
+      <%= @course.date %>
+      <%= @course.course_end_date %>
+    </p>
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+  </div>
+</div>

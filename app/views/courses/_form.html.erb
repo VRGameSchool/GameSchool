@@ -16,12 +16,28 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= f.label :course_summary %><br>
+    <%= f.text_area :course_summary %>
+  </div>
+  <div class="field">
+    <%= f.label :course_length %><br>
+    <%= f.text_area :course_length %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
+  </div>
+  <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_area :description %>
   </div>
   <div class="field">
     <%= f.label :date %><br>
     <%= f.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :course_end_date %><br>
+    <%= f.datetime_select :course_end_date %>
   </div>
   <div class="actions">
     <%= f.submit %>
