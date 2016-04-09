@@ -13,7 +13,9 @@
   p {
     line-height: 2em;
   }
-  </style>
+</style>
+
+<p id="notice"><%= notice %></p>
 
 <section id="img-parallax-2" data-type="background" data-speed="10">
   <div id="hero-text">
@@ -26,18 +28,13 @@
 <div id="slide-2">
   <div class="container">
     <h1>What We Do</h1>
+    <%= link_to 'Edit School', edit_school_path(@schools.first) %>
   </div>
   <div class="container">
     <div class="section" id="about-us">
       <div class="content">
         <p>
-          Game School was founded on the idea that anyone can learn to
-          make Virtual Reality. We're game designers and self-taught
-          coders, and we want to make the next generation of influencers
-          in the world of Virtual Reality. There are tons of places that
-          VR can go - from virtual tourism, to therapy, to training - and
-          we want to help anyone who has an idea, to understand how to
-          make it a (virtual) reality.
+          <%= @schools.first.about_us %>
         </p>
       </div>
     </div>

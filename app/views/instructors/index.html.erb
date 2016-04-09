@@ -1,0 +1,38 @@
+<style>
+    .instructor-image img {
+      height: 150px;
+    }
+    .section {
+      width: 350px;
+    }
+    .section p {
+      text-align: justify;
+      line-height: 1.25em;
+      padding: 0 20px 0 20px;
+    }
+</style>
+
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'New Instructor', new_instructor_path %>
+
+<div class="slide" id="meet-us">
+  <div class="container">
+    <h1>Meet Your Instructors:</h1>
+    <br />
+    <% @instructors.each do |instructor| %>
+      <div class="section interest" data-package="daily">
+        <div class="instructor-image">
+          <%= image_tag("jason.png") %>
+        </div>
+        <h2><%= instructor.first_name %> <%= instructor.last_name %></h2>
+        <p><%= instructor.title %></p>
+        <p><%= instructor.bio %></p>
+        <p><%= link_to 'Show', instructor %> | <%= link_to 'Edit', edit_instructor_path(instructor) %> | <%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      </div>
+    <% end %>
+    <div class="container">
+      <%= link_to 'More Classes', courses_path, class: 'btn', id: 'next' %>
+    </div>
+  </div>
+</div>

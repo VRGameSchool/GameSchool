@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @school.name %>
+</p>
+
+<p>
+  <strong>Value prop:</strong>
+  <%= @school.value_prop %>
+</p>
+
+<p>
+  <strong>Feature one:</strong>
+  <%= @school.feature_one %>
+</p>
+
+<p>
+  <strong>Feature two:</strong>
+  <%= @school.feature_two %>
+</p>
+
+<p>
+  <strong>Feature three:</strong>
+  <%= @school.feature_three %>
+</p>
+
+<p>
+  <strong>About us:</strong>
+  <%= @school.about_us %>
+</p>
+
+<%= link_to 'Edit', edit_school_path(@school) %> |
+<%= link_to 'Back', schools_path %>
