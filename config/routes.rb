@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :instructors
   root 'welcome#index'
   get '/about',      to: 'welcome#about',      as: 'about'
   get '/who_we_are', to: 'welcome#who_we_are', as: 'who-we-are'
