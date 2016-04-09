@@ -20,11 +20,14 @@
           <p>
             <%= @course.course_summary %><br />
             <%= @course.description %><br />
+            <%= @course.address %><br />
             <%= @course.course_length %><br />
             <%= @course.price %><br />
-            <%= @course.date %><br />
-            <%= @course.course_end_date %>
-            <%= @course.course_status %>
+            <%= @course.date.strftime("%A %B %d") %><br />
+            <%= @course.course_end_date.strftime("%A %B %d") %><br />
+            <%= @course.course_status %><br />
+            <%= @course.longitude %><br />
+            <%= @course.latitude %>
           </p>
       </div>
     </div>
