@@ -15,26 +15,30 @@
     <h2>Available Classes:</h2>
 
     <% @courses.each do |course| %>
-      <div class="section interest" data-package="daily">
-        <h2><%= course.name %></h2>
-        <p><%= course.date %></p>
-        <p>$150</p>
-        <p><%= course.course_summary %></p>
-        <%= link_to 'Show', course %> | <%= link_to 'Edit', edit_course_path(course) %> | <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </div>
+      <%= link_to(course) do %>
+        <div class="section interest" data-package="daily">
+          <h2><%= course.name %></h2>
+          <p><%= course.date %></p>
+          <p>$150</p>
+          <p><%= course.course_summary %></p>
+          <%= link_to 'Edit', edit_course_path(course) %> | <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      <% end %>
     <% end %>
 
     <br />
 
     <h2>Future Classes</h2>
       <% @future_courses.each do |course| %>
-        <div class="section interest" data-package="daily">
-          <h2><%= course.name %></h2>
-          <p><%= course.date %></p>
-          <p>$150</p>
-          <p><%= course.course_summary %></p>
-          <%= link_to 'Show', course %> | <%= link_to 'Edit', edit_course_path(course) %> | <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </div>
+      <%= link_to(course) do %>
+          <div class="section interest" data-package="daily">
+            <h2><%= course.name %></h2>
+            <p><%= course.date %></p>
+            <p>$150</p>
+            <p><%= course.course_summary %></p>
+            <%= link_to 'Edit', edit_course_path(course) %> | <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        <% end %>
       <% end %>
   <!-- End Container -->
   </div>
