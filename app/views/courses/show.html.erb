@@ -17,27 +17,17 @@
   <div class="container">
     <div class="section">
       <div class="content">
-        <p>
-          <%= @course.course_summary %>
-        </p>
-        <p>
-          <%= @course.description %>
-        </p>
-        <p>
-          <%= @course.course_length %>
-        </p>
+          <p>
+            <%= @course.course_summary %><br />
+            <%= @course.description %><br />
+            <%= @course.course_length %><br />
+            <%= @course.price %><br />
+            <%= @course.date %><br />
+            <%= @course.course_end_date %>
+            <%= @course.course_status %>
+          </p>
       </div>
     </div>
-    <p>
-      <%= @course.price %>
-      <strong>Description:</strong>
-    </p>
-
-    <p>
-      <strong>Date:</strong>
-      <%= @course.date %>
-      <%= @course.course_end_date %>
-    </p>
 
   </div>
 </div>

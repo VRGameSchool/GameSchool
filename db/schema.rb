@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407075611) do
+ActiveRecord::Schema.define(version: 20160409212514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160407075611) do
     t.string   "course_length"
     t.string   "course_summary"
     t.datetime "course_end_date"
+    t.string   "course_status"
   end
 
 end

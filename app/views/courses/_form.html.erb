@@ -39,6 +39,10 @@
     <%= f.label :course_end_date %><br>
     <%= f.datetime_select :course_end_date %>
   </div>
+  <div class="field">
+    <%= f.label :course_status %><br>
+    <%= f.collection_select :course_status, @course_status_options, :to_s, :to_s, include_blank: false %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
