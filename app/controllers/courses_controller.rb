@@ -4,7 +4,8 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    @courses = Course.where(course_status: "Availability")
+    @future_courses = Course.where(course_status: "Coming Soon")
   end
 
   # GET /courses/1
