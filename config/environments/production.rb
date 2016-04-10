@@ -24,6 +24,21 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
+  config.action_mailer.default_url_options = {:host => 'gameschool.io', :protocol => 'http'} #I've also tried it without ":protocol => 'http'"
+  config.action_mailer.default_options = {from: ENV["EMAIL_ADDRESS"]}
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.smtp_settings = {
+     :address => "smtp.gmail.com",
+     :port => 587,
+     :authentication => :plain,
+     :enable_starttls_auto => true,
+     :user_name => ENV["EMAIL_ADDRESS"],
+     :password => ENV["EMAIL_PASSWORD"],
+   }
+
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
