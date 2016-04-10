@@ -5,5 +5,6 @@ class WelcomeController < ApplicationController
   end
 
   def dashboard
+    @school = School.first
   end
 end
