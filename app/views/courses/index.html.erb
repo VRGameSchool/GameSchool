@@ -20,7 +20,12 @@
           <h2><%= course.name %></h2>
           <p><%= course.date.strftime("%A %B %d") %></p>
           <p><%= course.course_summary %></p>
-          <%= link_to 'Edit', edit_course_path(course) %> | <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% if current_user.present? %>
+            <%= link_to 'Edit', edit_course_path(course) %> |
+            <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% else %>
+            <%= nil %>
+          <% end %>
         </div>
       <% end %>
     <% end %>
@@ -34,7 +39,12 @@
             <h2><%= course.name %></h2>
             <p><%= course.date.strftime("%A %B %d") %></p>
             <p><%= course.course_summary %></p>
-            <%= link_to 'Edit', edit_course_path(course) %> | <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% if current_user.present? %>
+              <%= link_to 'Edit', edit_course_path(course) %> |
+              <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% else %>
+              <%= nil %>
+            <% end %>
           </div>
         <% end %>
       <% end %>

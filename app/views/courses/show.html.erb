@@ -8,7 +8,11 @@
 
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_course_path(@course) %> | <%= link_to 'Back', courses_path %>
+  <% if current_user.present? %>
+    <%= link_to 'Edit', edit_course_path(@course) %> | <%= link_to 'Back', courses_path %>
+  <% else %>
+    <%= nil %>
+  <% end %>
 
 <div class="slide">
   <div class="container">
