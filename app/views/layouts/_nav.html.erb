@@ -13,7 +13,7 @@
       <div class="nav-link"><%= link_to 'who we are', instructors_path %></div>
       <div class="nav-link"><%= link_to 'classes', courses_path %></div>
       <% if current_user.present? %>
-        <div class="nav-link"><%= link_to 'manage', courses_path %></div>
+        <div class="nav-link"><%= link_to 'manage', dashboard_path %></div>
         <div class="nav-link"><%= link_to('logout', destroy_user_session_path, :method => :delete) %></div>
         <% else %>
         <div class="nav-link btn exo sm" id="nav-signup">signup</div>
