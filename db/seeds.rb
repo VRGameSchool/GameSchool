@@ -26,7 +26,7 @@ entity = School.create(
   }
 )
 
-instructor = Instructor.creaet(
+instructor = Instructor.create(
   {
     first_name: "Jason",
     last_name: "Mathias",
