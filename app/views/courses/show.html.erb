@@ -38,6 +38,13 @@
   <%= @course.latitude %>
 </div>
 
+<div class="instructors">
+  <h2>Meet Your Instructor:</h2>
+  <div class="instructor-card">
+    <a href="/instructors/<%= @course.instructor.id %>"><%= @course.instructor.first_name %> <%= @course.instructor.last_name %></a><br />
+    <%= @course.instructor.title %>
+  </div>
+</div>
 
 <style>
   #map-canvas {
