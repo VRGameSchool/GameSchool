@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
+  devise_for :users
+  devise_scope :user do
+    get "login", to: "devise/sessions#new"
+  end
   resources :schools
   resources :instructors
   root 'welcome#index'
-  get '/about', to: 'schools#index', as: 'about'
+  get '/about',     to: 'schools#index',     as: 'about'
+  get '/dashboard', to: 'welcome#dashboard', as: 'dashboard'
   resources :courses
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

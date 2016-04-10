@@ -16,7 +16,10 @@
 <body>
 
 <%= render partial: "layouts/nav" %>
-<div class="spacer"></div>
+<div class="spacer">
+  <!-- <p class="notice"><%= notice %></p> -->
+  <!-- <p class="alert"><%= alert %></p> -->
+</div>
 <%= yield %>
 
 <% if Rails.env == "production" %>
