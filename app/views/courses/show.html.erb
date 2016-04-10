@@ -1,40 +1,82 @@
+<p id="notice"><%= notice %></p>
+
+<% if current_user.present? %>
+  <%= link_to 'Edit', edit_course_path(@course) %> | <%= link_to 'Back', courses_path %>
+<% else %>
+  <%= nil %>
+<% end %>
+
+<div class="hero">
+  <div class="hero-title">
+    <h1><%= @course.name %></h1><div class="availability"><%= @course.course_status %></div>
+  </div>
+  <div class="hero-body">
+    <%= @course.course_summary %>
+  </div>
+  <div class="hero-sub">
+    <h2>This course starts:</h2>
+    It is <%= @course.course_length %>
+  </div>
+</div>
+
+<div class="class-description">
+  <h2>What you will learn:</h2>
+  <p><%= @course.description %></p>
+  <h2>Price:</h2>
+  <p><%= @course.price %></p>
+</div>
+
+<div class="class-calendar">
+  <%= @course.date.strftime("%A %B %d") %>
+  <%= @course.course_end_date.strftime("%A %B %d") %>
+</div>
+
+<div class="class-details">
+  <div class="map"></div>
+  <%= @course.address %>
+  <%= @course.longitude %>
+  <%= @course.latitude %>
+</div>
+
+
 <style>
-  .section {
-    min-width: 300px;
-    width: 50%;
-    text-align: justify;
+  #map-canvas {
+    width: 500px;
   }
 </style>
 
-<p id="notice"><%= notice %></p>
+<!-- (7) GOOGLE MAPS SECTION -->
+<div id="map-canvas"></div>
+<script>
+  // Google Maps
+  var map;
+  function initMap() {
+    var mapOptions = {
+      center: {lat: 34.180, lng: -118.3076012},
+      zoom: 17,
+      disableDefaultUI: true,
+      scroll:{x:$(window).scrollLeft(),y:$(window).scrollTop()}
+    };
+    map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    var marker = new google.maps.Marker({
+      position: {lat: 34.1812979, lng: -118.3076012},
+      map: map,
+      title: 'HanHai Studio'
+    });
 
-  <% if current_user.present? %>
-    <%= link_to 'Edit', edit_course_path(@course) %> | <%= link_to 'Back', courses_path %>
-  <% else %>
-    <%= nil %>
-  <% end %>
+  // Paralax Google Map
+    var offset=$(map.getDiv()).offset();
+    map.panBy(((mapOptions.scroll.x-offset.left)/3),((mapOptions.scroll.y-offset.top)/3));
 
-<div class="slide">
-  <div class="container">
-    <h1><%= @course.name %></h1>
-  </div>
-  <div class="container">
-    <div class="section">
-      <div class="content">
-          <p>
-            <%= @course.course_summary %><br />
-            <%= @course.description %><br />
-            <%= @course.address %><br />
-            <%= @course.course_length %><br />
-            <%= @course.price %><br />
-            <%= @course.date.strftime("%A %B %d") %><br />
-            <%= @course.course_end_date.strftime("%A %B %d") %><br />
-            <%= @course.course_status %><br />
-            <%= @course.longitude %><br />
-            <%= @course.latitude %>
-          </p>
-      </div>
-    </div>
-
-  </div>
-</div>
+    google.maps.event.addDomListener(window, 'scroll', function(){
+      var scrollY=$(window).scrollTop(),
+      scrollX=$(window).scrollLeft(),
+      scroll=map.get('scroll');
+      if(scroll){
+        map.panBy(-((scroll.x-scrollX)/3),-((scroll.y-scrollY)/3));
+      }
+      map.set('scroll',{x:scrollX,y:scrollY})
+    });
+  }
+  initMap();
+</script>
