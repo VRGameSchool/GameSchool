@@ -29,6 +29,10 @@ gem 'devise'
 # Figaro
 gem "figaro"
 
+# Markdown Gems
+gem 'redcarpet'
+gem 'coderay'
+
 # Heroku
 gem 'rails_12factor', group: :production
 

@@ -1,3 +1,42 @@
+<style>
+  .class-description {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .class-text {
+    max-width: 500px;
+    text-align: left;
+    margin: 0 auto;
+  }
+  .instructors {
+    padding-top: 25px;
+    background-color: #e2e2e2;
+  }
+  .instructor-card {
+    padding: 0 25px 25px 25px;
+    font-size: 1.5em;
+    line-height: 1.5;
+  }
+  .instructor-title {
+    font-size: 18px;
+  }
+  .object-container {
+    display: inline-block;
+  }
+  .event-container {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 25px 0 0 0;
+  }
+  #map-canvas {
+    display: inline-block;
+    width: 350px;
+    height: 282px;
+  }
+</style>
+
 <p id="notice"><%= notice %></p>
 
 <% if current_user.present? %>
@@ -19,62 +58,27 @@
     </div>
   </div>
 
-  <div class="hero-body">
-    <%= @course.course_summary %>
-  </div>
-
-  <div class="hero-sub">
-    <h2>This course starts:</h2>
-    It is <%= @course.course_length %>
-  </div>
-</div>
-
 <div class="class-description">
-  <h2>What you will learn:</h2>
-  <p><%= @course.description %></p>
-  <h2>Price:</h2>
-  <p><%= @course.price %></p>
+  <div class="class-text">
+    <%= markdown(@course.description) %>
+  </div>
 </div>
-
 
 <!-- Meet Your Instructors -->
 <div class="instructors">
   <h2>Meet Your Instructor:</h2>
   <div class="instructor-card">
-    <a href="/instructors/<%= @course.instructor.id %>"><%= @course.instructor.first_name %> <%= @course.instructor.last_name %></a><br />
-    <%= @course.instructor.title %>
+    <a href="/instructors/<%= @course.instructor.id %>"><%= @course.instructor.first_name %> <%= @course.instructor.last_name %></a>
+    <div class="instructor-title">
+      <%= @course.instructor.title %>
+    </div>
   </div>
 </div>
 
-<div class="class-calendar">
-  <%= @course.date.strftime("%A %B %d") %>
-  <%= @course.course_end_date.strftime("%A %B %d") %>
-</div>
-
-<div class="class-details">
-  <div class="map"></div>
-  <%= @course.address %>
-  <%= @course.longitude %>
-  <%= @course.latitude %>
-</div>
-
-<style>
-  .object-container {
-    display: inline-block;
-  }
-  .event-container {
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    margin: 0 auto;
-  }
-  #map-canvas {
-    display: inline-block;
-    width: 350px;
-    height: 282px;
-  }
-  iframe, object { overflow:hidden; }
-</style>
+<!-- These Variabels will need to be used to make map DYNAMIC -->
+<%#= @course.address %>
+<%#= @course.longitude %>
+<%#= @course.latitude %>
 
 <!-- GOOGLE MAPS SECTION -->
 <div id="map-canvas"></div>
@@ -86,8 +90,9 @@
   </object>
 </div>
 
+<!-- Event Brite Section -->
 <div class="event-container">
-  <object data="//eventbrite.com/tickets-external?eid=24060041231&ref=etckt" style="max-width:710px;" frameborder="0" height="293" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="none" allowtransparency="true"></object>
+  <object data="//eventbrite.com/tickets-external?eid=24060041231&ref=etckt" style="max-width:710px;" frameborder="0" height="400" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" seamless="seamless" scrolling="no" allowtransparency="true"></object>
   <div style="font-family:Helvetica, Arial; font-size:10px; padding:5px 0 5px; margin:2px; width:100%; text-align:left;" >
     <a class="powered-by-eb" style="color: #dddddd; text-decoration: none;" target="_blank" href="http://www.eventbrite.com/r/etckt">Powered by Eventbrite</a>
   </div>
