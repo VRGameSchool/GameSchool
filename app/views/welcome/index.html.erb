@@ -29,26 +29,15 @@
       <h1>Start Learning Now!</h1>
       <h3 id="selection">Join our upcoming classes:</h3>
       <br />
-      <div class="section interest" data-package="daily">
-        <h2>Intro to Unity</h2>
-        <p>$150</p>
-        <p>Two night course for beginners</p>
-      </div>
-      <div class="section interest" data-package="part-time">
-        <h2>VR User Interface</h2>
-        <p>$150</p>
-        <p>Two night course for beginners</p>
-      </div>
-      <div class="section interest" data-package="member">
-        <h2>Intro to Code</h2>
-        <p>$350</p>
-        <p>1 week evening course</p>
-      </div>
-      <div class="section interest" data-package="dedicated">
-        <h2>360 Video</h2>
-        <p>$600</p>
-        <p>One day class and take home your own 360 camera!</p>
-      </div>
+      <% @courses.each do |course| %>
+        <%= link_to(course) do %>
+          <div class="section interest" data-package="daily">
+            <h2><%= course.name %></h2>
+            <p>$<%= course.price %></p>
+            <p><%= course.course_summary %></p>
+          </div>
+        <% end %>
+      <% end %>
       <div class="container">
         <a href="/classes.html"><button class="btn" id="next">More Classes</button></a>
       </div>
