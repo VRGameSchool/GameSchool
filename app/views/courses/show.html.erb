@@ -8,11 +8,21 @@
 
 <div class="hero">
   <div class="hero-title">
-    <h1><%= @course.name %></h1><div class="availability"><%= @course.course_status %></div>
+    <h1><%= @course.name %></h1><div class="availability">
+      <% if @course.course_status == "Availability" %>
+        <%= image_tag("availability.svg", height: '50px') %>
+        Spaces Available
+      <% else %>
+        <%= image_tag("no-availability.svg", height: '50px') %>
+        Class Full
+      <% end %>
+    </div>
   </div>
+
   <div class="hero-body">
     <%= @course.course_summary %>
   </div>
+
   <div class="hero-sub">
     <h2>This course starts:</h2>
     It is <%= @course.course_length %>
