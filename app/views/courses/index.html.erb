@@ -12,7 +12,7 @@
 <div class="slide" id="our-classes">
   <div class="container">
     <h1>Our Classes</h1>
-    <h2>Available Classes:</h2>
+    <h2>Current Classes:</h2>
 
     <% @courses.each do |course| %>
       <%= link_to(course) do %>
@@ -30,24 +30,13 @@
       <% end %>
     <% end %>
 
-    <br />
+  <h2>All Upcoming Classes:</h2>
+  <!-- Google Calendar Section -->
+  <div class="object-container">
+    <object data="https://calendar.google.com/calendar/embed?title=GameSchool%20Upcoming%20Courses&amp;showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=500&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=4h8dh3jrfmgnso9f0uqsqu2480%40group.calendar.google.com&amp;color=%23853104&amp;ctz=America%2FLos_Angeles"
+      style="border-width:0" width="350" height="300" frameborder="0" scrolling="no">
+    </object>
+  </div>
 
-    <h2>Future Classes</h2>
-      <% @future_courses.each do |course| %>
-      <%= link_to(course) do %>
-          <div class="section interest" data-package="daily">
-            <h2><%= course.name %></h2>
-            <p><%= course.date.strftime("%A %B %d") %></p>
-            <p><%= course.course_summary %></p>
-            <% if current_user.present? %>
-              <%= link_to 'Edit', edit_course_path(course) %> |
-              <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %>
-            <% else %>
-              <%= nil %>
-            <% end %>
-          </div>
-        <% end %>
-      <% end %>
-  <!-- End Container -->
   </div>
 </div>
