@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get '/about',     to: 'schools#index',     as: 'about'
   get '/dashboard', to: 'welcome#dashboard', as: 'dashboard'
+  get '/events',    to: 'courses#index',     as: 'events'
   resources :courses
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
