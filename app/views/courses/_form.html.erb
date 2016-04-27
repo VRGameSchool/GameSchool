@@ -56,6 +56,10 @@
     <%= f.collection_select :course_status, @course_status_options, :to_s, :to_s, include_blank: false %>
   </div>
   <div class="field">
+    <%= f.label :eventbrite_id %><br>
+    <%= f.number_field :eventbrite_id %>
+  </div>
+  <div class="field">
     <%= f.label :instructor_id, "Instructor" %>:<br />
     <%= f.collection_select :instructor_id, Instructor.order(:first_name), :id, :first_name %>
   </div>
