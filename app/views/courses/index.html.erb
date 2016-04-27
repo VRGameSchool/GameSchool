@@ -12,8 +12,9 @@
 <div class="slide" id="our-classes">
   <div class="container">
     <h1>Our Classes</h1>
-    <h2>Current Classes:</h2>
-
+    <% if !@courses.nil? %>
+      <h2>Current Classes:</h2>
+    <% end %>
     <% @courses.each do |course| %>
       <%= link_to(course) do %>
         <div class="section interest" data-package="daily">
